@@ -1,0 +1,56 @@
+
+<mat-form-field class="filterInput" appearance="standard">
+   
+
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
+
+  </mat-form-field>
+  <button mat-raised-button (click)="openDialogAdd()" color="accent" >
+    Add Heroe
+  </button>
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+
+
+    
+    <!-- Name Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> id </th>
+      <td mat-cell *matCellDef="let heroe"> {{heroe.id}}</td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let heroe"> {{heroe.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="age">
+      <th mat-header-cell *matHeaderCellDef> Age </th>
+      <td mat-cell *matCellDef="let heroe"> {{heroe.age}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef> </th>
+      <td mat-cell *matCellDef="let heroe"> <span class="material-icons pointer" (click)="openDialog(heroe,'edit')" >edit</span></td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef>  </th>
+      <td mat-cell *matCellDef="let heroe"> <span class="material-icons pointer" (click)="openDialog(heroe,'delete')">delete</span></td>
+    </ng-container>
+
+
+   
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+</div>
+
+
+
+<div class="add-hero">
+
+</div>

@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>Hi </h2>
+<div mat-dialog-content>
+  <p>Which superhero would you add to your team?</p>
+  <mat-form-field appearance="fill">
+    <mat-label></mat-label>
+    <input matInput [(ngModel)]="data.name">
+  </mat-form-field>
+  <p>Age</p>
+  <mat-form-field appearance="fill">
+    <mat-label></mat-label>
+    <input type="number" matInput [(ngModel)]="data.age">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button  [mat-dialog-close]="data" cdkFocusInitial>Add</button>
+</div>
